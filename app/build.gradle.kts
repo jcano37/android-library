@@ -54,7 +54,8 @@ android {
     publishing {
         singleVariant("release") {
             withSourcesJar()
-            withJavadocJar()
+            // Temporalmente deshabilitado por problemas con Dokka
+            // withJavadocJar()
         }
     }
 }
