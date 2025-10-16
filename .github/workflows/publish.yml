@@ -13,6 +13,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
     
     steps:
     - uses: actions/checkout@v4
@@ -40,9 +41,10 @@ jobs:
       id: get_version
       run: |
         if [[ $GITHUB_REF == refs/tags/* ]]; then
-          echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-        elif [[ $GITHUB_REF == refs/heads/* ]]; then
-          echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          VERSION=${GITHUB_REF#refs/tags/}
+          # Remover la 'v' del inicio si existe
+          VERSION=${VERSION#v}
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
         else
           echo "VERSION=1.0.0" >> $GITHUB_OUTPUT
         fi
