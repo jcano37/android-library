@@ -123,7 +123,7 @@ publishing {
                     ?: System.getenv("USERNAME")
                 password = (project.findProperty("gpr.key") as String?)
                     ?: System.getenv("GITHUB_TOKEN")
-                    ?: System.getenv("TOKEN")
+                    ?: System.getenv("PERSONAL_ACCESS_TOKEN")
             }
         }
     }
