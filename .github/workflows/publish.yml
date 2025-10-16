@@ -60,10 +60,10 @@ jobs:
         ./gradlew build
       
     - name: Publish to GitHub Packages
-      run: ./gradlew publish
+      run: ./gradlew publish --no-daemon --stacktrace
       env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        GITHUB_ACTOR: ${{ github.actor }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Upload release artifacts
       uses: actions/upload-artifact@v4

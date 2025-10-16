@@ -54,7 +54,6 @@ android {
     publishing {
         singleVariant("release") {
             withSourcesJar()
-            // Temporalmente deshabilitado por problemas con Dokka
             // withJavadocJar()
         }
     }
@@ -119,8 +118,12 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/jcano37/android-library")
             credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+                username = (project.findProperty("gpr.user") as String?)
+                    ?: System.getenv("GITHUB_ACTOR")
+                    ?: System.getenv("USERNAME")
+                password = (project.findProperty("gpr.key") as String?)
+                    ?: System.getenv("GITHUB_TOKEN")
+                    ?: System.getenv("TOKEN")
             }
         }
     }
