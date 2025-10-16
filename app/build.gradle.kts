@@ -118,13 +118,13 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/jcano37/android-library")
             credentials {
-                username = (project.findProperty("gpr.user") as String?)
-                    ?: System.getenv("USERNAME")
+                username = System.getenv("USERNAME")
+                    ?: (project.findProperty("gpr.user") as String?)
                     ?: System.getenv("GITHUB_ACTOR")
-                password = (project.findProperty("gpr.key") as String?)
-                    ?: System.getenv("TOKEN")
-                    ?: System.getenv("PERSONAL_ACCESS_TOKEN")
+                password = System.getenv("TOKEN")
+                    ?: (project.findProperty("gpr.key") as String?)
                     ?: System.getenv("GITHUB_TOKEN")
+                    ?: System.getenv("PERSONAL_ACCESS_TOKEN")
             }
             authentication {
                 create<BasicAuthentication>("basic")
