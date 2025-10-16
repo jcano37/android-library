@@ -62,7 +62,7 @@ jobs:
     - name: Publish to GitHub Packages
       run: ./gradlew publish --no-daemon --stacktrace
       env:
-        GITHUB_ACTOR: ${{ github.actor }}
+        GITHUB_ACTOR: ${{ secrets.USERNAME }}
         GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         
     - name: Upload release artifacts

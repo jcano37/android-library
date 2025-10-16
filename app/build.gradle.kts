@@ -124,6 +124,7 @@ publishing {
                 password = (project.findProperty("gpr.key") as String?)
                     ?: System.getenv("GITHUB_TOKEN")
                     ?: System.getenv("PERSONAL_ACCESS_TOKEN")
+                    ?: System.getenv("TOKEN")
             }
         }
     }
