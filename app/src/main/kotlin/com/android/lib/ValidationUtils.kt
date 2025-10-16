@@ -1,4 +1,4 @@
-package com.jcano.lib
+package com.android.lib
 
 /**
  * Utility class for validation operations

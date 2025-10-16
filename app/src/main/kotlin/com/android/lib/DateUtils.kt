@@ -1,4 +1,4 @@
-package com.jcano.lib
+package com.android.lib
 
 import java.text.SimpleDateFormat
 import java.util.*

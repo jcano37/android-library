@@ -1,4 +1,4 @@
-name: jcanoLib CI
+name: android-library CI
 
 on:
   push:

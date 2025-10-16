@@ -1,4 +1,4 @@
-package com.jcano.lib
+package com.android.lib
 
 import android.Manifest
 import android.content.Context

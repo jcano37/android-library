@@ -1,4 +1,4 @@
-package com.jcano.lib
+package com.android.lib
 
 import org.junit.Test
 import org.junit.Assert.*

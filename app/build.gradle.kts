@@ -5,8 +5,8 @@ plugins {
 }
 
 android {
-    namespace = "com.jcano.lib"
-    compileSdk = 34
+    namespace = "com.android.lib"
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 24
@@ -29,11 +29,11 @@ android {
     }
     
     testOptions {
-        targetSdk = 34
+        targetSdk = 36
     }
     
     lint {
-        targetSdk = 34
+        targetSdk = 36
     }
 }
 
@@ -51,8 +51,8 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.jcano"
-            artifactId = "jcanoLib"
+            groupId = "com.android"
+            artifactId = "android-library"
             version = "1.0.0"
 
             afterEvaluate {
@@ -60,9 +60,9 @@ publishing {
             }
 
             pom {
-                name.set("jcanoLib")
+                name.set("android-library")
                 description.set("Una librería Android modular y reutilizable con funciones utilitarias esenciales")
-                url.set("https://github.com/YOUR_USERNAME/jcanoLib")
+                url.set("https://github.com/jcano37/android-library")
                 
                 licenses {
                     license {
@@ -80,9 +80,9 @@ publishing {
                 }
                 
                 scm {
-                    connection.set("scm:git:git://github.com/YOUR_USERNAME/jcanoLib.git")
-                    developerConnection.set("scm:git:ssh://github.com:YOUR_USERNAME/jcanoLib.git")
-                    url.set("https://github.com/YOUR_USERNAME/jcanoLib/tree/main")
+                    connection.set("scm:git:git://github.com/jcano37/android-library.git")
+                    developerConnection.set("scm:git:ssh://github.com:jcano37/android-library.git")
+                    url.set("https://github.com/jcano37/android-library/tree/main")
                 }
             }
         }
@@ -91,7 +91,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/YOUR_USERNAME/jcanoLib")
+            url = uri("https://maven.pkg.github.com/jcano37/android-library")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")

@@ -1,4 +1,4 @@
-name: Publish jcanoLib to GitHub Packages
+name: Publish android-library to GitHub Packages
 
 on:
   release:
