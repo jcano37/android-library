@@ -1,4 +1,4 @@
-package com.pipeline.android.android.library
+package com.jcano.lib
 
 import android.Manifest
 import android.content.Context

@@ -1,4 +1,4 @@
-# Ejemplo de Uso - Android Utility Library
+# Ejemplo de Uso - jcanoLib
 
 Este documento muestra cómo integrar y usar la librería en un proyecto Android real.
 
@@ -14,7 +14,7 @@ allprojects {
         mavenCentral()
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/YOUR_USERNAME/android-library")
+            url = uri("https://maven.pkg.github.com/YOUR_USERNAME/jcanoLib")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
@@ -29,7 +29,7 @@ allprojects {
 ```kotlin
 // build.gradle.kts (App level)
 dependencies {
-    implementation("com.pipeline.android:android-library:1.0.0")
+    implementation("com.jcano:jcanoLib:1.0.0")
     
     // Otras dependencias...
     implementation("androidx.core:core-ktx:1.12.0")
@@ -46,7 +46,7 @@ package com.example.myapp
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.pipeline.android.android.library.*
+import com.jcano.lib.*
 
 class MainActivity : AppCompatActivity() {
     
@@ -141,8 +141,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.pipeline.android.android.library.StringUtils
-import com.pipeline.android.android.library.ValidationUtils
+import com.jcano.lib.StringUtils
+import com.jcano.lib.ValidationUtils
 
 class RegistrationFragment : Fragment() {
     
@@ -241,7 +241,7 @@ class RegistrationFragment : Fragment() {
 package com.example.myapp.utils
 
 import android.content.Context
-import com.pipeline.android.android.library.DeviceUtils
+import com.jcano.lib.DeviceUtils
 
 class NetworkHelper(private val context: Context) {
     

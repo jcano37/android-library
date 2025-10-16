@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "android-library"
+rootProject.name = "jcanoLib"
 include(":app")

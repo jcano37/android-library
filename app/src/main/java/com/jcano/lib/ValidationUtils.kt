@@ -1,4 +1,4 @@
-package com.pipeline.android.android.library
+package com.jcano.lib
 
 /**
  * Utility class for validation operations

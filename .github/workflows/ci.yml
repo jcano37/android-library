@@ -1,4 +1,4 @@
-name: CI
+name: jcanoLib CI
 
 on:
   push:

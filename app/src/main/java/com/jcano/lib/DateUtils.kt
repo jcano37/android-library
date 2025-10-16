@@ -1,4 +1,4 @@
-package com.pipeline.android.android.library
+package com.jcano.lib
 
 import java.text.SimpleDateFormat
 import java.util.*

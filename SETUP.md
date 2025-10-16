@@ -1,6 +1,6 @@
-# Configuración del Entorno de Desarrollo
+# Configuración del Entorno de Desarrollo - jcanoLib
 
-Esta guía te ayudará a configurar el entorno para desarrollar y compilar la librería.
+Esta guía te ayudará a configurar el entorno para desarrollar y compilar jcanoLib.
 
 ## Requisitos Previos
 
@@ -47,7 +47,7 @@ sdk.dir=C\\:\\Users\\LEGION\\AppData\\Local\\Android\\Sdk
 ./gradlew test
 
 # Tests específicos
-./gradlew app:testDebugUnitTest --tests "com.pipeline.android.android.library.StringUtilsTest"
+./gradlew app:testDebugUnitTest --tests "com.jcano.lib.StringUtilsTest"
 ```
 
 ### Limpiar proyecto:
@@ -81,7 +81,7 @@ sdk.dir=C\\:\\Users\\LEGION\\AppData\\Local\\Android\\Sdk
 ## Estructura de Archivos Importantes
 
 ```
-android-library/
+jcanoLib/
 ├── local.properties          # Configuración local (NO subir a git)
 ├── gradle.properties         # Configuración global
 ├── build.gradle.kts         # Configuración del proyecto

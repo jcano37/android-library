@@ -21,4 +21,4 @@
 #-renamesourcefileattribute SourceFile
 
 # Keep library classes
--keep class com.pipeline.android.android.library.** { *; }
+-keep class com.jcano.lib.** { *; }

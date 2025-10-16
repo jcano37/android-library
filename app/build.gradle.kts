@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.pipeline.android.android.library"
+    namespace = "com.jcano.lib"
     compileSdk = 34
 
     defaultConfig {
@@ -51,8 +51,8 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.pipeline.android"
-            artifactId = "android-library"
+            groupId = "com.jcano"
+            artifactId = "jcanoLib"
             version = "1.0.0"
 
             afterEvaluate {
@@ -60,9 +60,9 @@ publishing {
             }
 
             pom {
-                name.set("Android Utility Library")
-                description.set("A modular and reusable Android library with utility functions")
-                url.set("https://github.com/YOUR_USERNAME/android-library")
+                name.set("jcanoLib")
+                description.set("Una librería Android modular y reutilizable con funciones utilitarias esenciales")
+                url.set("https://github.com/YOUR_USERNAME/jcanoLib")
                 
                 licenses {
                     license {
@@ -80,9 +80,9 @@ publishing {
                 }
                 
                 scm {
-                    connection.set("scm:git:git://github.com/YOUR_USERNAME/android-library.git")
-                    developerConnection.set("scm:git:ssh://github.com:YOUR_USERNAME/android-library.git")
-                    url.set("https://github.com/YOUR_USERNAME/android-library/tree/main")
+                    connection.set("scm:git:git://github.com/YOUR_USERNAME/jcanoLib.git")
+                    developerConnection.set("scm:git:ssh://github.com:YOUR_USERNAME/jcanoLib.git")
+                    url.set("https://github.com/YOUR_USERNAME/jcanoLib/tree/main")
                 }
             }
         }
@@ -91,7 +91,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/YOUR_USERNAME/android-library")
+            url = uri("https://maven.pkg.github.com/YOUR_USERNAME/jcanoLib")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")

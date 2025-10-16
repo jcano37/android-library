@@ -1,4 +1,4 @@
-# Android Utility Library
+# jcanoLib
 
 Una librería de Android modular y reutilizable con funciones utilitarias esenciales.
 
@@ -24,7 +24,7 @@ allprojects {
         mavenCentral()
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/YOUR_USERNAME/android-library")
+            url = uri("https://maven.pkg.github.com/YOUR_USERNAME/jcanoLib")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
@@ -40,7 +40,7 @@ En tu archivo `build.gradle.kts` (nivel módulo):
 
 ```kotlin
 dependencies {
-    implementation("com.pipeline.android:android-library:1.0.0")
+    implementation("com.jcano:jcanoLib:1.0.0")
 }
 ```
 
@@ -58,7 +58,7 @@ gpr.key=TU_TOKEN_GITHUB
 ### StringUtils
 
 ```kotlin
-import com.pipeline.android.android.library.StringUtils
+import com.jcano.lib.StringUtils
 
 // Verificar si una cadena es nula o vacía
 val isEmpty = StringUtils.isNullOrEmpty("") // true
@@ -79,7 +79,7 @@ val isValidEmail = StringUtils.isValidEmail("user@example.com") // true
 ### DateUtils
 
 ```kotlin
-import com.pipeline.android.android.library.DateUtils
+import com.jcano.lib.DateUtils
 import java.util.Date
 
 // Formatear fecha actual
@@ -101,7 +101,7 @@ val isToday = DateUtils.isToday(someDate)
 ### DeviceUtils
 
 ```kotlin
-import com.pipeline.android.android.library.DeviceUtils
+import com.jcano.lib.DeviceUtils
 
 // Obtener modelo del dispositivo
 val deviceModel = DeviceUtils.getDeviceModel() // "Samsung Galaxy S21"
@@ -122,7 +122,7 @@ val hasPermission = DeviceUtils.isPermissionGranted(context, Manifest.permission
 ### ValidationUtils
 
 ```kotlin
-import com.pipeline.android.android.library.ValidationUtils
+import com.jcano.lib.ValidationUtils
 
 // Validar número de teléfono
 val isValidPhone = ValidationUtils.isValidPhoneNumber("+1 (555) 123-4567") // true
