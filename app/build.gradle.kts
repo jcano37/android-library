@@ -126,6 +126,9 @@ publishing {
                     ?: System.getenv("PERSONAL_ACCESS_TOKEN")
                     ?: System.getenv("GITHUB_TOKEN")
             }
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
         }
     }
 }
