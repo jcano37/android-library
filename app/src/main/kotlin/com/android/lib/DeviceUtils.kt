@@ -50,17 +50,12 @@ object DeviceUtils {
     fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val network = connectivityManager.activeNetwork ?: return false
-            val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
-            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
-        } else {
-            @Suppress("DEPRECATION")
-            val networkInfo = connectivityManager.activeNetworkInfo
-            networkInfo?.isConnected == true
-        }
+        // Since minSdk is 24, we can always use the modern API
+        val network = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
     }
     
     /**
@@ -70,26 +65,30 @@ object DeviceUtils {
      */
     fun getScreenDimensions(context: Context): Pair<Int, Int> {
         val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val displayMetrics = DisplayMetrics()
         
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val display = context.display
-            display?.getRealMetrics(displayMetrics)
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val bounds = windowManager.currentWindowMetrics.bounds
+            Pair(bounds.width(), bounds.height())
         } else {
+            val displayMetrics = DisplayMetrics()
             @Suppress("DEPRECATION")
             windowManager.defaultDisplay.getMetrics(displayMetrics)
+            Pair(displayMetrics.widthPixels, displayMetrics.heightPixels)
         }
-        
-        return Pair(displayMetrics.widthPixels, displayMetrics.heightPixels)
     }
     
     /**
-     * Gets the device unique identifier (Android ID)
+     * Gets a device identifier for analytics purposes
+     * Note: For privacy reasons, consider using advertising ID or instance ID instead
      * @param context The application context
-     * @return The Android ID string
+     * @return The Android ID string (may be null or reset on factory reset)
      */
+    @Deprecated(
+        "Using hardware IDs is not recommended. Consider using advertising ID or instance ID for analytics.",
+        ReplaceWith("getAdvertisingId(context)", "com.google.android.gms.ads.identifier.AdvertisingIdClient")
+    )
     fun getDeviceId(context: Context): String {
-        return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
+        return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID) ?: "unknown"
     }
     
     /**

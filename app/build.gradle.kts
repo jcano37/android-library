@@ -24,8 +24,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
     }
     
     testOptions {
@@ -48,6 +50,15 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 }
 
+android {
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+}
+
 publishing {
     publications {
         register<MavenPublication>("release") {
@@ -60,29 +71,43 @@ publishing {
             }
 
             pom {
-                name.set("android-library")
-                description.set("Una librería Android modular y reutilizable con funciones utilitarias esenciales")
+                name.set("Android Library")
+                description.set("Una librería Android modular y reutilizable con funciones utilitarias esenciales para el desarrollo de aplicaciones Android")
                 url.set("https://github.com/jcano37/android-library")
                 
                 licenses {
                     license {
                         name.set("The Apache License, Version 2.0")
                         url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                        distribution.set("repo")
                     }
                 }
                 
                 developers {
                     developer {
-                        id.set("developer")
-                        name.set("Developer Name")
+                        id.set("jcano37")
+                        name.set("Developer")
                         email.set("developer@example.com")
+                        organization.set("Android Library")
+                        organizationUrl.set("https://github.com/jcano37")
                     }
                 }
                 
                 scm {
                     connection.set("scm:git:git://github.com/jcano37/android-library.git")
-                    developerConnection.set("scm:git:ssh://github.com:jcano37/android-library.git")
-                    url.set("https://github.com/jcano37/android-library/tree/main")
+                    developerConnection.set("scm:git:ssh://git@github.com:jcano37/android-library.git")
+                    url.set("https://github.com/jcano37/android-library")
+                    tag.set("HEAD")
+                }
+                
+                issueManagement {
+                    system.set("GitHub Issues")
+                    url.set("https://github.com/jcano37/android-library/issues")
+                }
+                
+                ciManagement {
+                    system.set("GitHub Actions")
+                    url.set("https://github.com/jcano37/android-library/actions")
                 }
             }
         }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- Suppress HardwareIds warning for getDeviceId method since it's properly deprecated -->
+    <issue id="HardwareIds" severity="ignore">
+        <ignore path="src/main/kotlin/com/android/lib/DeviceUtils.kt" />
+    </issue>
+</lint>
