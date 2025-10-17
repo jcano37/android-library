@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Release-v1.0.0-brightgreen?style=flat-square" alt="Release"/>
+  <img src="https://img.shields.io/badge/Release-v1.0.1-brightgreen?style=flat-square" alt="Release"/>
   <img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square" alt="License"/>
   <img src="https://img.shields.io/github/stars/jcano37/android-library?style=flat-square&color=yellow" alt="Stars"/>
   <img src="https://img.shields.io/github/forks/jcano37/android-library?style=flat-square&color=orange" alt="Forks"/>
@@ -85,7 +85,7 @@ allprojects {
 En tu `build.gradle.kts` (módulo):
 ```kotlin
 dependencies {
-    implementation("com.android:android-library:1.0.0")
+    implementation("com.android:android-library:1.0.1")
 }
 ```
 
