@@ -1,3 +1,5 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
 <div align="center">
 
 # 🚀 Android Library
@@ -9,8 +11,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/jcano37/android-library?style=flat-square&color=blue" alt="Release"/>
-  <img src="https://img.shields.io/github/license/jcano37/android-library?style=flat-square&color=green" alt="License"/>
+  <img src="https://img.shields.io/badge/Release-v1.0.0-brightgreen?style=flat-square" alt="Release"/>
+  <img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square" alt="License"/>
   <img src="https://img.shields.io/github/stars/jcano37/android-library?style=flat-square&color=yellow" alt="Stars"/>
   <img src="https://img.shields.io/github/forks/jcano37/android-library?style=flat-square&color=orange" alt="Forks"/>
 </p>
@@ -335,11 +337,16 @@ graph LR
 
 ## 📄 Licencia
 
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
 <div align="center">
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](http://www.apache.org/licenses/LICENSE-2.0.txt)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](LICENSE)
 
 **Apache License 2.0** - Libre para uso comercial y personal
+
+Este proyecto está licenciado bajo la Licencia Apache versión 2.0. 
+Ver [LICENSE](LICENSE) para más detalles.
 
 </div>
 
